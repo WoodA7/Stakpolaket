@@ -1,0 +1,26 @@
+﻿<Window x:Class="Steclopaket.NewOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Steclopaket"
+        mc:Ignorable="d"
+        Title="New order" Height="267.895" Width="338.97">
+    <Grid Height="237" VerticalAlignment="Top">
+        <GroupBox x:Name="groupBox" Header="Size " Margin="10,40,0,0" BorderBrush="Black" HorizontalAlignment="Left" Width="311" Height="103" VerticalAlignment="Top">
+            <Grid Margin="0,0,-2,-2.96">
+                <TextBox x:Name="tbWidth" Margin="86.04,12.96,15.96,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+                <Label x:Name="label" Content="Width, cm" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="71.04"/>
+                <Label x:Name="label1" Content="High, cm" HorizontalAlignment="Left" Margin="10,40.96,0,0" VerticalAlignment="Top" Width="71.04" Height="25.96"/>
+                <TextBox x:Name="tbHigh" Margin="86.04,43.92,15.96,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <Label x:Name="label2" Content="Window type" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="82"/>
+        <ComboBox x:Name="cbProduct" Margin="97,10,10,0" VerticalAlignment="Top" Height="25"/>
+        <Button x:Name="btnSaveOrder" Content="Save" HorizontalAlignment="Left" Height="24" Margin="10,204,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label x:Name="label2_Copy" Content="Customer" HorizontalAlignment="Left" Margin="10,154,0,0" Width="82" Height="25" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbCustomer" Margin="97,154,10,0" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="btnCancel" Content="Cancel" Margin="86,204,154,0" VerticalAlignment="Top" Height="24" Click="btnCancel_Click"/>
+
+    </Grid>
+</Window>

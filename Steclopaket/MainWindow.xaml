@@ -1,0 +1,37 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Steclopaket"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Steclopaket.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Background="White" Loaded="Window_Loaded">
+    <TabControl x:Name="tabControl" Margin="0,0,0,0">
+        <TabItem Header="Orders" Margin="-2,0">
+            <Grid x:Name="Grid" Margin="0,0,0,0">
+                <DataGrid x:Name="dgOrders" Margin="0,0,0,35" AutoGenerateColumns="true"/>
+                <Button x:Name="btnAddOrder" Content="Add order" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Margin="10,0,0,10" Click="btnAddOrder_Click"/>
+                <Button x:Name="btnDelOrder" Content="Delete order" HorizontalAlignment="Left" Margin="90,0,0,10.04" VerticalAlignment="Bottom" Width="93.667"/>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Materials" MouseEnter="TabItem_MouseEnter" Margin="-2,0">
+            <Grid Background="#FFE5E5E5">
+                <DataGrid x:Name="dgMaterials" Margin="0,0,0,39" SelectionUnit="Cell" 
+                          AutoGenerateColumns="True" CanUserAddRows="False"/>
+                <Button x:Name="btnNewMat" Content="Add new" HorizontalAlignment="Left" Margin="10,0,0,14.04" VerticalAlignment="Bottom" Width="65" Click="btnNewMat_Click"/>
+                <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Margin="80,0,0,14.04" VerticalAlignment="Bottom" Width="75"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Products" MouseEnter="TabItem_MouseEnter" Margin="-2,0">
+            <Grid Background="#FFE5E5E5">
+                <DataGrid x:Name="dgProducts" Margin="0,0,0,39" SelectionUnit="Cell" 
+        			AutoGenerateColumns="True" CanUserAddRows="False"/>
+                <Button x:Name="btnNewProd" Content="Add new" HorizontalAlignment="Left" Margin="10,0,0,14.04" VerticalAlignment="Bottom" Width="65" Click="btnNewProd_Click"/>
+                <Button x:Name="btnDelProd" Content="Delete" HorizontalAlignment="Left" Margin="80,0,0,14.04" VerticalAlignment="Bottom" Width="75"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
