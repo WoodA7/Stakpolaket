@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Steclopaket" Class="PaketDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Steclopaket;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="Steclopaket.Properties.Settings" SettingsPropertyName="SteclopaketConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.ProductMult" Member="ProductMults">
-    <Type Name="ProductMult">
-      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Prod_Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="Mater_Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="Mater_Qty" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Association Name="ProductMult_Product" Member="Products" ThisKey="Id" OtherKey="Materials" Type="Product" />
-      <Association Name="Material_ProductMult" Member="Material" ThisKey="Mater_Id" OtherKey="Id" Type="Material" IsForeignKey="true" />
-      <Association Name="Product_ProductMult" Member="Product" ThisKey="Prod_Id" OtherKey="Id" Type="Product" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Materials" Member="Materials">
     <Type Name="Material">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -23,20 +12,8 @@
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Materials" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="Product_ProductMult" Member="ProductMults" ThisKey="Id" OtherKey="Prod_Id" Type="ProductMult" />
       <Association Name="Product_OrdersMult" Member="OrdersMults" ThisKey="Id" OtherKey="Product_Id" Type="OrdersMult" />
       <Association Name="ProductMult_Product" Member="ProductMult" ThisKey="Materials" OtherKey="Id" Type="ProductMult" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OrdersMult" Member="OrdersMults">
-    <Type Name="OrdersMult">
-      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Order_Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="Product_Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="Qty" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Association Name="OrdersMult_Order" Member="Orders" ThisKey="Id" OtherKey="Products" Type="Order" />
-      <Association Name="Product_OrdersMult" Member="Product" ThisKey="Product_Id" OtherKey="Id" Type="Product" IsForeignKey="true" />
-      <Association Name="Order_OrdersMult" Member="Order" ThisKey="Order_Id" OtherKey="Id" Type="Order" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Orders" Member="Orders">
@@ -45,9 +22,8 @@
       <Column Name="Customer" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="Products" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Order_OrdersMult" Member="OrdersMults" ThisKey="Id" OtherKey="Order_Id" Type="OrdersMult" />
-      <Association Name="OrdersMult_Order" Member="OrdersMult" ThisKey="Products" OtherKey="Id" Type="OrdersMult" IsForeignKey="true" />
       <Association Name="Customer_Order" Member="Customer1" ThisKey="Customer" OtherKey="Id" Type="Customer" IsForeignKey="true" />
+      <Association Name="OrdersMult_Order" Member="OrdersMult" ThisKey="Products" OtherKey="Id" Type="OrdersMult" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Customers" Member="Customers">
@@ -56,6 +32,24 @@
       <Column Name="Name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Adress" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Association Name="Customer_Order" Member="Orders" ThisKey="Id" OtherKey="Customer" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductMult" Member="ProductMults">
+    <Type Name="ProductMult">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Mater_Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Mater_Qty" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="ProductMult_Product" Member="Products" ThisKey="Id" OtherKey="Materials" Type="Product" />
+      <Association Name="Material_ProductMult" Member="Material" ThisKey="Mater_Id" OtherKey="Id" Type="Material" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrdersMult" Member="OrdersMults">
+    <Type Name="OrdersMult">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Product_Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="OrdersMult_Order" Member="Orders" ThisKey="Id" OtherKey="Products" Type="Order" />
+      <Association Name="Product_OrdersMult" Member="Product" ThisKey="Product_Id" OtherKey="Id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

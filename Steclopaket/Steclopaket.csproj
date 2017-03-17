@@ -63,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MatSelect.xaml.cs">
+      <DependentUpon>MatSelect.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewMat.xaml.cs">
       <DependentUpon>NewMat.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MatSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewMat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

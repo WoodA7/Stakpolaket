@@ -8,18 +8,13 @@
         Title="New product" Height="334.5" Width="479.5">
     <Grid>
         <Label x:Name="label" Content="Product name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90.327"/>
-        <TextBox x:Name="tbProdName" Height="25.96" Margin="105.327,10,126.173,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}"/>
-        <DataGrid x:Name="dgMaterInProduct" Margin="0,70,0,35.5" IsSynchronizedWithCurrentItem="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding }" ClipboardContentBinding="{x:Null}"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="btnAdd" Content="add" HorizontalAlignment="Left" Height="14" Margin="0,56,0,0" VerticalAlignment="Top" Width="56" Padding="1,-1,1,1" UseLayoutRounding="True" FontSize="10"/>
+        <TextBox x:Name="tbProdName" Height="26" Margin="105,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}"/>
+        <DataGrid x:Name="dgMaterInProduct" Margin="0,70,0,35.5" IsSynchronizedWithCurrentItem="False" Loaded="dgMaterInProduct_Loaded"/>
+        <Button x:Name="btnAdd" Content="add" HorizontalAlignment="Left" Height="14" Margin="0,56,0,0" VerticalAlignment="Top" Width="56" Padding="1,-1,1,1" UseLayoutRounding="True" FontSize="10" Click="btnAdd_Click"/>
         <Button x:Name="button" Content="delete" HorizontalAlignment="Left" Margin="61,56,0,0" VerticalAlignment="Top" Width="53" Height="14" Padding="1,-1,1,1" ScrollViewer.CanContentScroll="True" FontSize="10"/>
-        <Button x:Name="btnSaveProd" Content="Save" HorizontalAlignment="Left" Height="18.5" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="80"/>
+        <Button x:Name="btnSaveProd" Content="Save" HorizontalAlignment="Left" Height="18.5" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="80" Click="btnSaveProd_Click"/>
         <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Margin="95,0,0,10" VerticalAlignment="Bottom" Width="87" Height="18.5" Click="button1_Click"/>
-        <Label x:Name="label1" Content="Materials:" Height="17.333" Margin="182,52.667,185.5,0" VerticalAlignment="Top" Padding="0"/>
+        <Label x:Name="label1" Content="Materials:" Height="17" Margin="182,55,186,0" VerticalAlignment="Top" Padding="0"/>
 
     </Grid>
 </Window>

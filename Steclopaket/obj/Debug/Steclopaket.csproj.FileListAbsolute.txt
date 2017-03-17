@@ -19,3 +19,5 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\Steclopaket\Steclopaket\obj\
 C:\Users\User\Documents\Visual Studio 2015\Projects\Steclopaket\Steclopaket\obj\Debug\NewOrder.baml
 C:\Users\User\Documents\Visual Studio 2015\Projects\Steclopaket\Steclopaket\obj\Debug\NewProduct.g.cs
 C:\Users\User\Documents\Visual Studio 2015\Projects\Steclopaket\Steclopaket\obj\Debug\NewProduct.baml
+C:\Users\User\Documents\Visual Studio 2015\Projects\Steclopaket\Steclopaket\obj\Debug\MatSelect.g.cs
+C:\Users\User\Documents\Visual Studio 2015\Projects\Steclopaket\Steclopaket\obj\Debug\MatSelect.baml

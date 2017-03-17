@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Common.CommandTrees;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,13 @@ namespace Steclopaket
     /// </summary>
     public partial class NewMat : Window
     {
+        public PaketDataContext DbContext;
+
         public NewMat()
         {
             InitializeComponent();
+            var connStr = ConfigurationManager.ConnectionStrings["connstr"].ToString();
+            DbContext = new PaketDataContext(connStr);
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -33,12 +38,13 @@ namespace Steclopaket
                 MessageBox.Show("Enter name!");
                 return;
             }
-            PaketDataContext db = new PaketDataContext();
-            Material material = new Material();
-            material.Id = Guid.NewGuid();
-            material.Name = tbName.Text;
-            db.Materials.InsertOnSubmit(material);
-            db.SubmitChanges();
+            var material = new Material
+            {
+                Id = Guid.NewGuid(),
+                Name = tbName.Text
+            };
+            DbContext.Materials.InsertOnSubmit(material);
+            DbContext.SubmitChanges();
             Close();
         }
 

@@ -37,14 +37,13 @@ namespace Steclopaket
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var result = from c in DbContext.Orders
-                select new
-                {
-                    c.Date,
-                    c.Customer1.Name,
-                    c.Products
-                };
-            dgOrders.ItemsSource = result;
+            dgOrders.ItemsSource = from c in DbContext.Orders
+                                   select new
+                                   {
+                                       c.Date,
+                                       c.Customer1.Name,
+                                       c.Products
+                                   };
 
         }
 
@@ -54,14 +53,13 @@ namespace Steclopaket
             wnd.Show();
         }
 
-        private void TabItem_MouseEnter(object sender, MouseEventArgs e)
+        private void TabMaterials_MouseEnter(object sender, MouseEventArgs e)
         {
-            var result = from m in DbContext.Materials
-                select new
-                {
-                    m.Name
-                };
-            dgOrders.ItemsSource = result;
+            dgMaterials.ItemsSource = from m in DbContext.Materials
+                                      select new
+                                      {
+                                          m.Name
+                                      };
         }
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)
@@ -72,8 +70,17 @@ namespace Steclopaket
 
         private void btnNewProd_Click(object sender, RoutedEventArgs e)
         {
-            var wnd = new NewProduct {Owner = this};
+            var wnd = new NewProduct { Owner = this };
             wnd.Show();
+        }
+
+        private void TabProducts_MouseEnter(object sender, MouseEventArgs e)
+        {
+            dgProducts.ItemsSource = from p in DbContext.Products
+                                     select new
+                                     {
+                                         p.Name
+                                     };
         }
     }
 

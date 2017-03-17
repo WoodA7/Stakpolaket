@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Background="White" Loaded="Window_Loaded">
     <TabControl x:Name="tabControl" Margin="0,0,0,0">
-        <TabItem Header="Orders" Margin="-2,0">
+        <TabItem x:Name="TabOrders" Header="Orders" Margin="-2,0">
             <Grid x:Name="Grid" Margin="0,0,0,0">
                 <DataGrid x:Name="dgOrders" Margin="0,0,0,35" AutoGenerateColumns="true"/>
                 <Button x:Name="btnAddOrder" Content="Add order" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Margin="10,0,0,10" Click="btnAddOrder_Click"/>
@@ -17,7 +17,7 @@
 
             </Grid>
         </TabItem>
-        <TabItem Header="Materials" MouseEnter="TabItem_MouseEnter" Margin="-2,0">
+        <TabItem x:Name="TabMaterials" Header="Materials" MouseEnter="TabMaterials_MouseEnter" Margin="-2,0">
             <Grid Background="#FFE5E5E5">
                 <DataGrid x:Name="dgMaterials" Margin="0,0,0,39" SelectionUnit="Cell" 
                           AutoGenerateColumns="True" CanUserAddRows="False"/>
@@ -25,7 +25,7 @@
                 <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Margin="80,0,0,14.04" VerticalAlignment="Bottom" Width="75"/>
             </Grid>
         </TabItem>
-        <TabItem Header="Products" MouseEnter="TabItem_MouseEnter" Margin="-2,0">
+        <TabItem x:Name="TabProducts" Header="Products" Margin="-2,0" MouseEnter="TabProducts_MouseEnter">
             <Grid Background="#FFE5E5E5">
                 <DataGrid x:Name="dgProducts" Margin="0,0,0,39" SelectionUnit="Cell" 
         			AutoGenerateColumns="True" CanUserAddRows="False"/>
